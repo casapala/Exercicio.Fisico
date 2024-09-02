@@ -229,18 +229,18 @@ const perguntas = [[
         ]
     }
     ], [
-    //Vôlei
+    //Exercício Físico
     {
-        enunciado: "Você está no saque, qual é a sua estratégia?",
+        enunciado: "Você acha importante praticar exercícios físicos?",
         alternativas: [
             {
-                texto: "Sacar uma bola forte e rápida.",
-                afirmacao: "O saque forte e rápido passou a bola pelo bloqueio e tocou o chão da quadra adversária. Ponto para seu time!",
+                texto: "Sim.",
+                afirmacao: "Sim!",
                 pontos: 1
             },
             {
-                texto: "Sacar uma bola curta e lenta.",
-                afirmacao: "O saque curto e lento foi levantado pelo adversário, resultando em um ataque bem-sucedido. Ponto para o adversário.",
+                texto: "Não.",
+                afirmacao: "Não!",
                 pontos: 0
             }
         ]

@@ -1,12 +1,14 @@
-const modalidades = ["Ginástica", "Judô", "Surfe", "Vôlei"];
+const modalidades = ["Ginástica", "Judô", "Surfe", "Exercício Físico"];
 
-// Coloque o número que represente o esporte do seu grupo
-const escolha = 2; // Escolha do grupo é "Surfe"
+// Número que representa o esporte do grupo
+const escolha = 3; // Escolha do grupo é "Exercício Físico"
 
-document.querySelector('body').style.backgroundImage = "url('img/" + modalidades[escolha] + ".png')";
-document.querySelector('title').textContent = "Missão Olímpica | " + modalidades[escolha];
-document.querySelector('h1').innerHTML = "Missão Olímpica <br> " + modalidades[escolha];
+// Atualiza o estilo e o título com base na escolha
+document.body.style.backgroundImage = `url('img/${modalidades[escolha]}.png')`;
+document.title = `Exercício Físico | ${modalidades[escolha]}`;
+document.querySelector('h1').innerHTML = 'Exercício Físico';
 
+// Seletores para os elementos
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
@@ -14,7 +16,7 @@ const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
 let atual = 0;
-let pontos = 0; // variável "pontos" iniciando com 0
+let pontos = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
@@ -25,24 +27,24 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[escolha][atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.innerHTML = "";
     mostraAlternativas();
 }
 
 function mostraAlternativas() {
-    for (const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
-    }
+    perguntaAtual.alternativas.forEach(alternativa => {
+        const botaoAlternativa = document.createElement("button");
+        botaoAlternativa.textContent = alternativa.texto;
+        botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativa);
+    });
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-    const afirmacao = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacao + " ";
+    const { afirmacao, pontos: pontosAlternativa } = opcaoSelecionada;
+    historiaFinal += `${afirmacao} `;
     atual++;
-    pontos += opcaoSelecionada.pontos;
+    pontos += pontosAlternativa;
     console.log(pontos);
     mostraPergunta();
 }
@@ -50,25 +52,19 @@ function respostaSelecionada(opcaoSelecionada) {
 function mostraResultado() {
     textoResultado.textContent = historiaFinal;
     caixaPerguntas.textContent = "Resultado";
-    caixaAlternativas.textContent = "";
-    podiumMedalhas(); // chamada da função podiumMedalhas
+    caixaAlternativas.innerHTML = "";
+    podiumMedalhas();
 }
 
-// função podiumMedalhas para verificar a quantidade de pontos
 function podiumMedalhas() {
-    if (pontos === 3) {
-        caixaPrincipal.style.backgroundImage = "url('img/bronze.png')";
-        caixaPerguntas.textContent = "Resultado da competição: 3 pontos é BRONZE!";
-    } else if (pontos === 4) {
-        caixaPrincipal.style.backgroundImage = "url('img/prata.png')";
-        caixaPerguntas.textContent = "Resultado da competição: 4 pontos é PRATA!";
-    } else if (pontos === 5) {
-        caixaPrincipal.style.backgroundImage = "url('img/ouro.png')";
-        caixaPerguntas.textContent = "Resultado da competição: 5 pontos é OURO!";
-    } else {
-        caixaPrincipal.style.backgroundImage = "url('img/perdeu.png')";
-        caixaPerguntas.textContent = "Resultado da competição: PERDEU!";
-    }
+    const medalhas = {
+        3: 'bronze.png',
+        4: 'prata.png',
+        5: 'ouro.png'
+    };
+    const imagem = medalhas[pontos] || 'perdeu.png';
+    caixaPrincipal.style.backgroundImage = `url('img/${imagem}')`;
+    caixaPerguntas.textContent = `Resultado da competição: ${pontos} ponto${pontos > 1 ? 's' : ''} é ${imagem.split('.')[0].toUpperCase()}!`;
 }
 
 mostraPergunta();
