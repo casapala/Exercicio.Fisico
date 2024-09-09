@@ -246,61 +246,61 @@ const perguntas = [[
         ]
     },
     {
-        enunciado: "O adversário fez um ataque forte. O que você faz?",
+        enunciado: "Quantas vezes por semana é recomendável fazer exercícios físicos na semana?",
         alternativas: [
             {
-                texto: "Tenta fazer um bloqueio duplo.",
-                afirmacao: "O bloqueio duplo foi eficiente e a bola voltou para a quadra adversária. Ponto para seu time!",
-                pontos: 1
+                texto: "Pelo menos 2 horas.",
+                afirmacao: "Errado!",
+                pontos: 0
             },
             {
-                texto: "Faz uma defesa baixa e rápida.",
-                afirmacao: "A defesa baixa e rápida foi boa, mas a bola foi para fora. Ponto para o adversário.",
-                pontos: 0
+                texto: "Pelo menos 1 hora.",
+                afirmacao: "Exato!",
+                pontos: 1
             }
         ]
     },
     {
-        enunciado: "Seu time está organizando um ataque. Qual é a sua jogada?",
+        enunciado: "Você tem o habito de práticar exercícios físicos?",
         alternativas: [
             {
-                texto: "Levanta a bola para o atacante principal.",
-                afirmacao: "O levantamento para o atacante principal resultou em um ataque certeiro. Ponto para seu time!",
+                texto: "Sim.",
+                afirmacao: "Ótimo!",
                 pontos: 1
             },
             {
-                texto: "Faz um toque surpresa para o fundo da quadra adversária.",
-                afirmacao: "O toque surpresa para o fundo da quadra adversária foi interceptado. Ponto para o adversário.",
+                texto: "Não.",
+                afirmacao: "Poxa...",
                 pontos: 0
             }            
         ]
     },
     {
-        enunciado: "A bola está vindo alta e perto da rede. O que você faz?",
+        enunciado: "Qual é a importância da hidratação e da alimentação antes e depois dos treinos?",
         alternativas: [
             {
-                texto: "Tenta um ataque potente.",
-                afirmacao: "O ataque potente resultou em uma bola fora. Ponto para o adversário.",
-                pontos: 0
+                texto: "Muito importante.",
+                afirmacao: "Parabéns!",
+                pontos: 1
             },
             {
-                texto: "Faz um toque sutil para enganar o bloqueio.",
-                afirmacao: "O toque sutil enganou o bloqueio e a bola caiu na quadra adversária. Ponto para seu time!",
-                pontos: 1
+                texto: "Pouco importante.",
+                afirmacao: "Não foi dessa vez!",
+                pontos: 0
             }
         ]
     },
     {
-        enunciado: "Você está recebendo o saque do adversário. Como você responde?",
+        enunciado: "Como posso criar uma rotina de exercícios que se encaixe na minha agenda ocupada?",
         alternativas: [
             {
-                texto: "Recebe a bola com um passe alto para organizar a jogada.",
-                afirmacao: "O passe alto organizou a jogada e resultou em um bom ataque. Ponto para seu time!",
+                texto: "Encontrar pequenos blocos de tempo ao longo do dia para atividades físicas, optar por treinos curtos e intensos.",
+                afirmacao: "Ótimo!",
                 pontos: 1
             },
             {
-                texto: "Recebe a bola com uma manchete baixa e rápida.",
-                afirmacao: "A manchete baixa e rápida resultou em um erro e a bola não passou. Ponto para o adversário.",
+                texto: "Não existe essa possibilidade.",
+                afirmacao: "Poxa...",
                 pontos: 0
             }
         ]
